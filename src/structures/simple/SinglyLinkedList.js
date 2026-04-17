@@ -68,17 +68,39 @@ class SinglyLinkedList {
   }
 
   clean() {
-    let removedCount = this._size;//let(int)
-    while (!this.isEmpty()) {  // aca es muy escencial el uso del this
-      this.removeFirst();    
-      return removedCount;     
+    let removed = 0;              // let
+    let current = this.head;      // let y this
+
+    while (current !== null) {
+      let next = current.next;    // let y quité getNext
+      current.next = null;        // quité setNext
+      current = next;             
+      removed++;
     }
+
+    this.head = null;             // this
+    this.tail = null;             // this
+    this._size = 0;               // this
+    return removed;
   }
 
   reverseInPlace() {
-    throw new Error(
-      "TODO RETO: Implementar reverseInPlace() en SinglyLinkedList."
-    );
+   if (this.head === null || this.head.next === null) { // this y quité getNext
+      return;
+    }
+
+    let previous = null;    // let
+    let current = this.head; // let y this
+    this.tail = this.head;   // this
+
+    while (current !== null) {
+      let next = current.next;    // let y quité getNext
+      current.next = previous;    // quité setNext
+      previous = current;         
+      current = next;             
+    }
+
+    this.head = previous; // this
   }
 
   removeDuplicates() {
