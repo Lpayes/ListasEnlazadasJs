@@ -112,9 +112,37 @@ class DoublyLinkedList {
   }
 
   removeDuplicates() {
-    throw new Error(
-      "TODO RETO: Implementar removeDuplicates() en DoublyLinkedList."
-    );
+  let removed = 0;//let
+    let current = this.head;// se inicializa el current para recorrer la lista, y this para acceder a la cabeza de la lista
+
+    while (current !== null) {
+      let runner = current.next; //leet y quite DoublyNode<T> asi como el  get
+      
+      while (runner !== null) {
+        let nextNode = runner.next; // leet y quite get
+        
+        if (this._isSameValue(current.value, runner.value)) {//quite get
+          let prevNode = runner.previous;// quite DoublyNode<T>, puse lee y quite get
+          
+          if (prevNode !== null) {
+            prevNode.next = nextNode;// quiete set
+          }
+
+          if (nextNode !== null) {
+            nextNode.previous = prevNode;
+          } else {
+            this.tail = prevNode;// this
+          }
+          
+          this._size--;// this
+          removed++;
+        } 
+        
+        runner = nextNode; // El runner avanza
+      }
+      current = current.next;// quite get
+    }
+    return removed;
   }
 
   size() {
