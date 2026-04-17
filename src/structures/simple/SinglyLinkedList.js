@@ -104,9 +104,35 @@ class SinglyLinkedList {
   }
 
   removeDuplicates() {
-    throw new Error(
-      "TODO RETO: Implementar removeDuplicates() en SinglyLinkedList."
-    );
+    let removed = 0;              // let
+    let current = this.head;      // let y this
+
+    while (current !== null) {
+      let runnerPrevious = current; // let
+      let runner = current.next;    // let y quité getNext
+
+      while (runner !== null) {
+        // 'this._isSameValue' y quité getValue
+        if (this._isSameValue(current.value, runner.value)) {
+          runnerPrevious.next = runner.next; // quité setNext y getNext
+          
+          if (runner === this.tail) {        // this
+            this.tail = runnerPrevious;      // this
+          }
+          
+          this._size--;                      // this
+          removed++;
+          runner = runnerPrevious.next;      // quité getNext
+        } else {
+          runnerPrevious = runner;
+          runner = runner.next;              // quité getNext
+        }
+      }
+
+      current = current.next;               // quité getNext
+    }
+
+    return removed;
   }
 
   size() {
