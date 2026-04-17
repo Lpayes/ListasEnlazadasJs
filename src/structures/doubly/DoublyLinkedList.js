@@ -75,9 +75,15 @@ class DoublyLinkedList {
   }
 
   countOccurrences(value) {
-    throw new Error(
-      "TODO RETO: Implementar countOccurrences(value) en DoublyLinkedList."
-    );
+    let count = 0;              // let
+    let current = this.head;    // let y this
+    while (current !== null) {
+      if (this._isSameValue(current.value, value)) { // this y quité getValue
+        count++;
+      }
+      current = current.next;   // quité getNext
+    }
+    return count;
   }
 
   clean() {
