@@ -54,9 +54,8 @@ class SinglyLinkedList {
   }
 
   countOccurrences(value) {
-    throw new Error(
-      "TODO RETO: Implementar countOccurrences(value) en SinglyLinkedList."
-    );
+    let count = 0;// let(int)
+  
   }
 
   clean() {
