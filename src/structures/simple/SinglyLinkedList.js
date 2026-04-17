@@ -68,7 +68,11 @@ class SinglyLinkedList {
   }
 
   clean() {
-    throw new Error("TODO RETO: Implementar clean() en SinglyLinkedList.");
+    let removedCount = this._size;//let(int)
+    while (!this.isEmpty()) {  // aca es muy escencial el uso del this
+      this.removeFirst();    
+      return removedCount;     
+    }
   }
 
   reverseInPlace() {
