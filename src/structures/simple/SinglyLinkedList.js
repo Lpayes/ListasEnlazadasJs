@@ -56,6 +56,7 @@ class SinglyLinkedList {
   countOccurrences(value) {
     let count = 0;// let(int)
     let current = this.head;    // 'this.head' es obligatorio para acceder al atributo de la clase
+    while (current !== null) {  // '!==' es el estándar de seguridad en JS
   
   }
 
