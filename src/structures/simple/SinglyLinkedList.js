@@ -63,6 +63,8 @@ class SinglyLinkedList {
         count++;
       }
       current = current.next; // 'current.next': Acceso directo al puntero (sin getNext).
+      }
+    return count; // Devuelvo el total acumulado
   }
 
   clean() {
