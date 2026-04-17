@@ -62,7 +62,7 @@ class SinglyLinkedList {
       if (this._isSameValue(current.value, value)) {
         count++;
       }
-  
+      current = current.next; // 'current.next': Acceso directo al puntero (sin getNext).
   }
 
   clean() {
