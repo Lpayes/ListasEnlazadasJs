@@ -57,6 +57,11 @@ class SinglyLinkedList {
     let count = 0;// let(int)
     let current = this.head;    // 'this.head' es obligatorio para acceder al atributo de la clase
     while (current !== null) {  // '!==' es el estándar de seguridad en JS
+      // 'current.value': Acceso directo (sin getValue).
+      // 'this._isSameValue': Llamo al método de usted inge usando 'this'.
+      if (this._isSameValue(current.value, value)) {
+        count++;
+      }
   
   }
 
